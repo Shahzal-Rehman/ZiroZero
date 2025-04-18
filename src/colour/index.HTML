@@ -1,18 +1,34 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="google-adsense-account" content="ca-pub-7334601574145044">
+	<meta property="og:url" content="https://mvp.microsoft.com/en-US/studentambassadors/profile/e35e0c4c-5d79-454a-8d8d-cb75c8b016fc?wt.mc_id=studentamb_281705">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shahzal Rehman,a Microsoft Learn Student Ambassador. Contact Shahzal at shahzalrehman0302@gmail.com or contact him at https:.//facebook.com/shahzal.rehman.official or https:.//facebook.com/shahzal.rehmani.official for inquiries.">
+    <meta name="description" content="Shahzal Bin Rashid
+,a Microsoft Learn Student Ambassador. Contact Shahzal at shahzalrehman0302@gmail.com or at shahzal.rehman@studentambassadors.com or contact him at https://facebook.com/HouseOfShaizu orhttps://www.linkedin.com/in/HouseOfShaizu for inquiries.">
     <meta name="author" content="Shahzal Rehman">
-     <meta name="author" content="Shahzal Rehman Official"><meta name="google-adsense-account" content="ca-pub-7334601574145044">
-<meta name="author" content="shahzal">
-<meta name="author" content="shahzal rehman">
-    <meta name="author" content="shahzal Rehman Official">
-    <meta name="keywords" content="Contact Shahzal at shahzalrehman0302@gmail.com or contact him at https:.//facebook.com/shahzal.rehman.official or https:.//facebook.com/shahzal.rehmani.official for inquiries.,Shahzal mlsapro,shahzal mlsa,shahzal rehman microsoft learn student ambassador,shahzal rehman official blogs,Shahzal Rehman, Microsoft Learn, Student Ambassador, tech enthusiast,Shahzal,shahzal,shahzal rehman,shahzal rehman official,Shahzal pictures,shahzal pictures,shahzal rehman pictures,shahzal rehman official pictures">
+     <meta name="author" content="Shahzal Bin Rashid">
+	<meta name="google-adsense-account" content="ca-pub-7334601574145044">
+<meta name="author" content="Shahzal">
+<meta name="author" content="Shahzal rehman">
+    <meta property="og:url" content="https://mvp.microsoft.com/en-US/studentambassadors/profile/e35e0c4c-5d79-454a-8d8d-cb75c8b016fc?wt.mc_id=studentamb_281705">
+<meta name="author" content="Shahzal Rehman=">
+    <meta name="keywords" content="Contact Shahzal at Shahzalrehman0302@gmail.com or contact him at https://www.linkedin.com/in/HouseOfShaizu or https://facebook.com/HouseOfshaizu for inquiries.,Shahzal Bin Rashid,Shahzal Shahzal,houseofshaizu.com,Shahzal is now Known As Shahzal Bin Rashid ,Shahzal mlsa,Shahzal rehman microsoft learn student ambassador,Shahzal rehman official blogs,Shahzal Rehman, Microsoft Learn, Student Ambassador, tech enthusiast,Shahzal,Shahzal,Shahzal rehman,Shahzal rehman official,Shahzal pictures,Shahzal pictures,Shahzal rehman pictures,Shahzal rehman official pictures">
     <meta name="google-site-verification" content="google-site-verification=Zh2kBBPJG7GZezC82-kdDvFdwV0mOOdgQsFUG8HYpYo">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7334601574145044"
+     crossorigin="anonymous"></script>
+<meta name="robots" content="max-image-preview:large">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7334601574145044"
+     crossorigin="anonymous"></script>
+<meta name="robots" content="max-image-preview:large">    
     <title>Image Color Picker</title>
     <style>
         body {
@@ -105,9 +121,8 @@
             '#ffffff', '#000000', '#ff0000', '#00ff00', '#0000ff', '#ffff00',
             '#ff00ff', '#00ffff', '#ff9900', '#9900ff', '#ffcc00', '#cc00ff',
             '#ff6666', '#66ff66', '#6666ff', '#ffff66', '#ff66ff', '#66ffff',
-            '#cccccc', '#999999', '#666666', '#333333', '#cccc00', '#cc00cc',
+            '#cccccc', '#999999', '#666666', '#333333', '#cccc00', '#cc00cc'
             // Add more colors as needed
-            // Example: '#ffcccc', '#ccffcc', '#ccccff', ...
         ];
 
         function previewImage(event) {
@@ -165,18 +180,31 @@
         }
 
         function hexToRgb(hex) {
-            const bigint = parseInt(hex.substring(1), 16);
-            const r = (bigint >> 16) & 255;
-            const g = (bigint >> 8) & 255;
-            const b = bigint & 255;
-            return { r, g, b };
+            // Expand shorthand hex (e.g. "#03F") to full form (e.g. "#0033FF")
+            let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+            hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+                return '#' + r + r + g + g + b + b;
+            });
+
+            // Convert full hex to RGB
+            let fullHexRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
+            let result = fullHexRegex.exec(hex);
+            if (result) {
+                return {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                };
+            } else {
+                return null;
+            }
         }
 
         document.getElementById('file-input').addEventListener('change', previewImage);
 
         document.getElementById('color-code').addEventListener('change', function() {
             const colorCode = this.value.trim();
-            if (colorCode.match(/^#[0-9A-F]{6}$/i)) {
+            if (colorCode.match(/^#[0-9A-F]{6}$/i) || colorCode.match(/^#[0-9A-F]{3}$/i)) {
                 selectColor(colorCode.toLowerCase());
             } else {
                 alert('Invalid color code. Please enter a valid hex color code (e.g., #RRGGBB)');
